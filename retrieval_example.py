@@ -6,25 +6,26 @@ import species
 species.SpeciesInit()
 # set up database
 database = species.Database()
+database.add_companion(name='51 Eri b')
 # add your object's data
 database.add_object('51 Eri b',
                     distance=None,
                     app_mag=None,
                     flux_density=None,
                     spectrum={
-                              'SPHERE': (filepref+'51erib_sphere_yjh.dat', None, 25.)
+                              'SPHERE': ('51erib_sphere_yjh.dat', None, 25.)
                              },
                     deredden=None)
 # set path for output
 output_folder = 'multinest'
 # set up AtmosphericRetrieval object
 retrieve = species.AtmosphericRetrieval(object_name='51 Eri b',
-                                        line_species=['CO_all_iso', 'H2O', 'CH4', 'NH3', 'CO2', 'Na', 'K', 'TiO', 'VO_Plez', 'FeH', 'H2S'],
+                                        line_species=['CO_all_iso', 'H2O', 'CH4', 'NH3', 'CO2', 'H2S'],
                                         # i renamed "Na_allard" to Na, "K_allard" to K, "TiO_all_Exomol" to TiO, VO_Plez to VO
-                                        cloud_species=['MgSiO3(c)_cd', 'Fe(c)_cd'],#, 'Al2O3(c)_cd'],
+                                        cloud_species=['Na2S(c)_cd', 'KCL(c)_cd'],
                                         scattering=True, #False if no clouds
                                         output_folder=output_folder,
-                                        wavel_range=(0.95, 2.5),
+                                        wavel_range=(0.95, 5),
                                         inc_spec=['SPHERE',],
                                         inc_phot=True,
                                         pressure_grid='smaller',#'standard' 'clouds'
@@ -36,10 +37,10 @@ retrieve.run_multinest(bounds={'logg': (3.5, 5.5),
                                'radius': (0.8, 1.5),
                                'fsed': (0., 10.),
                                'log_kzz': (4., 14.),
-                               # 'mgsio3_fraction':(-3.,1.),
-                               # 'fe_fracton':(-3.,1.),
-                               'log_tau_cloud': (-2., 1.), # if result should be cloudy but is not, set this
-                               'fe_mgsio3_ratio': (-2., 2.),
+                               'na2s_fraction':(-3.,1.),
+                               'kcl_fracton':(-3.,1.),
+                               # 'log_tau_cloud': (-2., 1.), # if result should be cloudy but is not, set this
+                               # 'fe_mgsio3_ratio': (-2., 2.),
                                # 'al2o3_mgsio3_ratio': (-2., 2.),
 #                                'ism_ext': (1.7, 1.7)
                               },

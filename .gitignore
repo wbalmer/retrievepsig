@@ -1,0 +1,8 @@
+input_data/*
+species/*
+petitRADTRANS/*
+*.pdf
+*.tar.gz
+*.hdf5
+data/*
+multinest/*
