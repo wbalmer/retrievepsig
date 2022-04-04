@@ -1,48 +1,68 @@
 First, I recommend you create a new python 3.9 environment using conda.
 I have encountered issues installing species on python 3.10.
 
-> conda create -n retrievepsig python=3.9
-> conda activate retrievepsig
+```
+conda create -n retrievepsig python=3.9
+conda activate retrievepsig
+```
 
 Then I install cython:
 
-> pip install cython
+```
+pip install cython
+```
 
 Then pymultinest, which is a nested sampler used by species to conduct fits
 
-> conda install -c conda-forge pymultinest
+```
+conda install -c conda-forge pymultinest
+```
 
 Just to be safe, after this step I like make sure to specify the numpy version that I'm sure is the most stable:
 
-> pip install numpy==1.21
+```
+pip install numpy==1.21
+```
 
 and install seaborn for nice plots
 
-> pip install seaborn
+```
+pip install seaborn
+```
 
 Next, install species from the github repo
 
-> git clone https://github.com/tomasstolker/species.git
+```
+git clone https://github.com/tomasstolker/species.git
+```
 
 pip install this repo in developer mode
 
-> cd species
-> pip install -e .
+```
+cd species
+pip install -e .
+```
 
 and (subject to change!) checkout the "retrieval_tutorial" branch
 
-> git checkout "retrieval_tutorial"
+```
+git checkout "retrieval_tutorial"
+```
 
 It is pertinent to test that species installed correctly, I do this by
 
-> python
-> import species
-> species.__version__
+```
+python
+import species
+species.\_\_version\_\_
+```
 
 Which should print an '0.4.0' then you can exit:
 
-> exit
-> cd ..
+```
+exit
+cd ..
+```
 
 Now is the painful part. You need to install petitRADTRANS *thunderclap, spooky organ music*
 
@@ -61,18 +81,24 @@ errors I ran into a while ago. It might have been fixed since, but I haven't che
 
 You then need to add this path to your .bashrc (I've included an example .bashrc in this repo) and
 
-> source .bashrc
+```
+source .bashrc
+```
 
 Now you are okay to install pRT, but we will install it from Tomas Stolker (the developer of species)'s fork of the repo, e.g.
 
-> git clone https://gitlab.com/tomasstolker/petitRADTRANS.git
+```
+git clone https://gitlab.com/tomasstolker/petitRADTRANS.git
+```
 
 install, and (subject to change!!) checkout the "testing" branch
 
-> cd petitRADTRANS
-> python setup.py install
-> git checkout "testing"
-> cd ..
+```
+cd petitRADTRANS
+python setup.py install
+git checkout "testing"
+cd ..
+```
 
 There is some weirdness about importing a submodule of petitRADTRANS, so to pre-empt that, we have to rename every call of
 "from poor_mans_nonequ_chem.poor_mans_nonequ_chem" to "from petitRADTRANS.poor_mans_nonequ_chem.poor_mans_nonequ_chem"
@@ -84,7 +110,9 @@ a unique and fascinating planet with some funky MIR photometry that we hope JWST
 
 run
 
-> python retrieval_tutorial.py
+```
+python retrieval_tutorial.py
+```
 
 and you should get output confirming that species compiled properly,
 called down the 51 Eri photometry, read in the 51 Eri spectrum in this repo,
