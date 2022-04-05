@@ -6,3 +6,6 @@ petitRADTRANS/*
 *.hdf5
 data/*
 multinest/*
+*.ipynb_checkpoints
+*.log
+ultranest/*
