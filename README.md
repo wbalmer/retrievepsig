@@ -91,19 +91,13 @@ Now you are okay to install pRT, but we will install it from Tomas Stolker (the 
 git clone https://gitlab.com/tomasstolker/petitRADTRANS.git
 ```
 
-install, and (subject to change!!) checkout the "testing" branch
+install
 
 ```
 cd petitRADTRANS
 python setup.py install
-git checkout "testing"
 cd ..
 ```
-
-There is some weirdness about importing a submodule of petitRADTRANS, so to pre-empt that, we have to rename every call of
-"from poor_mans_nonequ_chem.poor_mans_nonequ_chem" to "from petitRADTRANS.poor_mans_nonequ_chem.poor_mans_nonequ_chem"
-
-in the files "plot/plot_retrieval.py" "util/retrieval_util.py" and "analysis/retrieval.py"
 
 Now, you are ready to test the script I've prepared. I've formulated a basic retrieval on 51 Eri b,
 a unique and fascinating planet with some funky MIR photometry that we hope JWST will help clear up.
