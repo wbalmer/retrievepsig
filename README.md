@@ -72,13 +72,6 @@ You need to download the opacity data from https://keeper.mpdl.mpg.de/f/f5aba635
 
 and extract it to a folder titled "input_data"
 
-I have found it is best to rename some of the opacity folders in "input_data/opacities/lines/corr_k/", so I renamed
-
-"Na_allard" to Na, "K_allard" to K, "CO_all_iso_HITEMP" to "CO_all_iso", "H2O_HITEMP" to "H20",
-"TiO_all_Exomol" to TiO, VO to VO_old, and VO_Plez to VO.
-This seems non-sensical and that's because it partially is, but this will help species import the petitRADTRANS opacities without
-errors I ran into a while ago. It might have been fixed since, but I haven't checked.
-
 You then need to add this path to your .bashrc (I've included an example .bashrc in this repo) and
 
 ```
